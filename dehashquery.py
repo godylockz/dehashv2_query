@@ -60,7 +60,7 @@ class DehashedProcessor:
                 else:
                     print("Please enter 'y' or 'n'.")
             print(f"{Colors.CYAN}[*] Downloading data, domain: {self.config.domain} ...{Colors.NOCOLOR}")
-            payload = {"query": f'email:"@{self.config.domain}"', "page": 1, "size": 10000, "regex": False, "wildcard": False, "de_dupe": False}
+            payload = {"query": f'domain:{self.config.domain}', "page": 1, "size": 10000, "regex": False, "wildcard": False, "de_dupe": False}
             response = requests.post(self.config.base_url, headers=self.headers, json=payload)
             if response.status_code != 200:
                 print(response.text)
